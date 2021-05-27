@@ -6,23 +6,14 @@ class AvatarView extends StatefulWidget {
   final AvatarType avatarType;
   final bool isOnlyText;
   final double radius;
-
   final double borderWidth;
-
   final Color borderColor;
-
   final Color backgroundColor;
-
   final Color foregroundColor;
-
   final String imagePath;
-
   final Text text;
-
   final GestureTapCallback onTap;
-
   final Widget placeHolder;
-
   final Widget errorWidget;
 
   const AvatarView(
@@ -61,7 +52,7 @@ class _AvatarViewState extends State<AvatarView> {
               radius: widget.radius,
               foregroundColor: widget.foregroundColor,
               text: widget.text,
-              isOnlyText: widget.isOnlyText,
+              isOlytext: widget.isOnlyText,
             )
           : RectangularWidget(
               backgroundColor: widget.backgroundColor,
@@ -73,7 +64,7 @@ class _AvatarViewState extends State<AvatarView> {
               radius: widget.radius,
               foregroundColor: widget.foregroundColor,
               text: widget.text,
-              isOnlyText: widget.isOnlyText,
+              isOlytext: widget.isOnlyText,
             ),
     );
   }

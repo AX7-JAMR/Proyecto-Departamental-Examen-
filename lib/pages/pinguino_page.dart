@@ -1,19 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:examen_json/pages/pinguino_page.dart';
-
-class CardsPage extends StatelessWidget {
+class PinguinoClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Cards Page')),
+        appBar: AppBar(title: Text('Pingüino Page')),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                //Metodos para las cards
-                _pinguino(context),
+                //Metodo
+                _pinguino(context)
               ],
             ),
           ),
@@ -21,7 +18,6 @@ class CardsPage extends StatelessWidget {
   }
 }
 
-//Metodos para los CARDS
 Widget _pinguino(BuildContext context) {
   return Card(
     // Darle un redondeo a los cards
@@ -40,7 +36,7 @@ Widget _pinguino(BuildContext context) {
             Ink.image(
               height: 200,
               image: NetworkImage(
-                  'https://images.pexels.com/photos/689784/pexels-photo-689784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'),
+                  'https://images.pexels.com/photos/53970/king-penguin-penguins-group-of-penguins-bird-53970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
               fit: BoxFit.fitWidth,
             ),
           ],
@@ -54,38 +50,16 @@ Widget _pinguino(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "Pingüino",
+                "Descripcion",
                 style: TextStyle(color: Colors.black38),
               ),
               Text(
-                  "El animal que se deslizan de panza sobre las laderas heladas a fin de ahorrar tiempo y energía"),
+                  "Se trata de un grupo de aves marinas no voladoras, en el que se pueden diferenciar hasta 18 especies diferentes las cuales que se distribuyen -exceptuando el pingüino de las islas Galápagos- exclusivamente en el Hemisferio Sur.",
+                  textAlign: TextAlign.center),
             ],
           ),
         ),
-
-        //Para agregar el boton de mas información
-        ButtonBar(
-          children: <Widget>[
-            FlatButton(
-              child: Text(
-                'Mas Info',
-                style: TextStyle(color: Colors.white, fontSize: 13),
-              ),
-              color: Colors.cyan,
-              onPressed: () {
-                // Que sucedera
-                _btnPinguino(context);
-              },
-            ),
-          ],
-        )
       ],
     ),
   );
-}
-
-//Metodos para los botones
-_btnPinguino(BuildContext context) {
-  final route = MaterialPageRoute(builder: (context) => PinguinoClass());
-  Navigator.push(context, route);
 }

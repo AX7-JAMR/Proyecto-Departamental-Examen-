@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CircularWidget extends StatelessWidget {
   final Text text;
-  final bool isOnlyText;
+  final bool isOlytext;
   final double radius;
   final double borderWidth;
   final String imagePath;
@@ -16,27 +16,26 @@ class CircularWidget extends StatelessWidget {
   const CircularWidget(
       {Key key,
       this.radius,
-      this.borderWidth,
+      this.borderColor,
       this.imagePath,
       this.backgroundColor,
       this.foregroundColor,
-      this.borderColor,
       this.placeHolder,
       this.errorWidget,
       this.text,
-      this.isOnlyText})
+      this.borderWidth,
+      this.isOlytext})
       : super(key: key);
 
   Widget getTextWidget() {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(radius),
-      child: Container(
-          padding: EdgeInsets.all(borderWidth),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius),
-              color: backgroundColor),
-          child: Center(child: text)),
-    );
+        borderRadius: BorderRadius.circular(radius),
+        child: Container(
+            padding: EdgeInsets.all(borderWidth),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(radius),
+                color: backgroundColor),
+            child: Center(child: text)));
   }
 
   @override
@@ -47,15 +46,14 @@ class CircularWidget extends StatelessWidget {
       padding: EdgeInsets.all(borderWidth),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius), color: borderColor),
-      child: isOnlyText
+      child: isOlytext
           ? getTextWidget()
           : imagePath.isEmpty
               ? ClipRRect(
                   borderRadius: BorderRadius.circular(radius),
                   child: Container(
                     color: backgroundColor,
-                  ),
-                )
+                  ))
               : ClipRRect(
                   borderRadius: BorderRadius.circular(radius),
                   child: imagePath.contains("http")
@@ -69,7 +67,10 @@ class CircularWidget extends StatelessWidget {
                             return errorWidget;
                           },
                         )
-                      : Image.asset(imagePath, fit: BoxFit.cover),
+                      : Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover,
+                        ),
                 ),
     );
   }
